@@ -31,6 +31,7 @@
         "symfony/yaml": "5.0.*"
     },
     "require-dev": {
+        "phpunit/php-code-coverage": "^8.0",
         "symfony/browser-kit": "5.0.*",
         "symfony/css-selector": "5.0.*",
         "symfony/debug-pack": "*",
