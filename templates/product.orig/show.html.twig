@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <h1>Categories</h1>
+        {% block body %}
+        
+        {{ product.id }}
+        {{ product.code }}
+        {{ product.name }}
+        {{ product.description }}
+        {{ product.brand }}
+        {{ product.price }}
+
+        {{ product.category.id }}
+        {{ product.category.code }}
+        {{ product.category.name }}
+
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

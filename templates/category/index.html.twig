@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+
+{% block body %}
+<!-- <style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style> -->
+
+<div class="example-wrapper">
+    <h1>Categorías</h1>
+
+    <a class="btn btn-success mb-2" href="{{ path('category_create') }}">Crear Categoría</a>
+    <hr>
+    <table class="table" id="category-table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Código</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Description</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+            <tr>
+            <th scope="row">{{ category.id }}</th>
+            <td>{{ category.code }}</td>
+            <td>{{ category.name }}</td>
+            <td>{{ category.description }}</td>
+            <td>
+                <button id="" data-id="{{ category.id }}" class="btn btn-info status-category">
+                    {{ category.status ? 'Activado' : 'Desactivada' }}
+                </button>
+            </td>
+            <td>
+                <a href="{{ path('category_show', {'id': category.id }) }}" class="btn btn-success">Detalles</a>
+                <a href="{{ path('category_edit', {'id': category.id }) }}" class="btn btn-warning">Editar</a>
+                <a href="{{ path('category_delete', {'id': category.id }) }}" class="btn btn-danger" onclick="return confirm('¿Realmente desea borrar este elemento?')">Borrar</a>
+            </td>
+            </tr>
+            {% else %}
+                <p>No hay registros</p>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
